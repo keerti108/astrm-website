@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>astrm — midsole chassis</title>
+<meta name="description" content="astrm licenses patented midsole geometry into the shoes brands already make. Natural foot motion, inside conventional silhouettes.">
+
+<!-- TODO: add favicon, OG image, and canonical URL once the domain is live -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,100..125,400..800;1,100..125,400..800&family=IBM+Plex+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --paper:#EAE6DF;
+  --paper-deep:#E0DDD6;
+  --ink:#15171A;
+  --ink-soft:#5E6267;
+  --rule:#C4C0BA;
+  --signal:#C35038;
+
+  --display:"Archivo","Helvetica Neue",Arial,sans-serif;
+  --body:"Newsreader",Georgia,"Times New Roman",serif;
+  --mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,monospace;
+
+  --gut:clamp(20px,5vw,64px);
+}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--body);
+  font-size:clamp(17px,1.05vw + 14px,20px);
+  line-height:1.55;
+  font-weight:300;
+}
+
+/* ---------- shared type devices ---------- */
+.wrap{max-width:1180px;margin:0 auto;padding-left:var(--gut);padding-right:var(--gut)}
+
+.eyebrow{
+  font-family:var(--mono);
+  font-size:11px;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--ink-soft);
+  display:flex;
+  align-items:center;
+  gap:14px;
+  margin:0 0 28px;
+  font-weight:500;
+}
+.eyebrow::after{
+  content:"";
+  flex:1;
+  height:1px;
+  background:var(--rule);
+}
+
+h1,h2,h3{
+  font-family:var(--display);
+  font-variation-settings:"wdth" 118;
+  font-weight:800;
+  text-transform:uppercase;
+  letter-spacing:-.005em;
+  line-height:.95;
+  margin:0;
+}
+h2{font-size:clamp(30px,4.4vw,54px)}
+h3{
+  font-size:clamp(15px,1.5vw,19px);
+  font-variation-settings:"wdth" 108;
+  font-weight:700;
+  letter-spacing:.02em;
+  line-height:1.15;
+}
+
+p{margin:0 0 1.1em;max-width:62ch}
+.lede{font-size:clamp(19px,1.4vw + 14px,25px);line-height:1.42;max-width:40ch}
+.muted{color:var(--ink-soft)}
+
+a{color:inherit}
+
+/* ---------- masthead ---------- */
+.mast{
+  border-bottom:1px solid var(--rule);
+  position:sticky;top:0;z-index:20;
+  background:color-mix(in srgb,var(--paper) 88%,transparent);
+  backdrop-filter:blur(8px);
+}
+.mast-in{
+  display:flex;align-items:center;justify-content:space-between;
+  gap:24px;padding-top:14px;padding-bottom:14px;
+}
+
+/* logo mark — arrow chevrons + wordmark */
+.logo{
+  display:flex;
+  align-items:center;
+  gap:0;
+  text-decoration:none;
+  line-height:1;
+}
+.logo svg{
+  display:block;
+  flex-shrink:0;
+}
+
+.mast nav{display:flex;gap:clamp(14px,2.4vw,32px);font-family:var(--mono);font-size:11px;letter-spacing:.13em;text-transform:uppercase}
+.mast nav a{text-decoration:none;color:var(--ink-soft);padding-bottom:2px;border-bottom:1px solid transparent}
+.mast nav a:hover,.mast nav a:focus-visible{color:var(--ink);border-bottom-color:var(--signal)}
+
+/* ---------- hero ---------- */
+.hero{padding-top:clamp(44px,6vw,84px);padding-bottom:clamp(30px,4vw,54px)}
+.hero h1{
+  font-size:clamp(42px,8.2vw,104px);
+  font-variation-settings:"wdth" 122;
+  max-width:13ch;
+}
+.hero h1 em{font-style:normal;color:var(--signal)}
+.hero-foot{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:22px;
+  margin-top:clamp(26px,3.5vw,44px);
+  padding-top:24px;
+  border-top:1px solid var(--rule);
+}
+@media(min-width:820px){
+  .hero-foot{grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:clamp(36px,5vw,80px);align-items:start}
+}
+.hero-foot p{margin:0}
+
+/* ---------- drawing sheet ---------- */
+.sheet{
+  border:1px solid var(--rule);
+  background:linear-gradient(var(--paper-deep),var(--paper-deep));
+  margin-top:clamp(30px,4vw,48px);
+  position:relative;
+}
+.sheet svg{display:block;width:100%;height:auto}
+
+.dwg-hatch line{stroke:var(--ink);stroke-width:.6;opacity:.17}
+.dwg-body{fill:url(#hatch);stroke:var(--ink);stroke-width:2}
+.dwg-chassis{fill:none;stroke:var(--signal);stroke-width:3.2;stroke-linecap:round}
+.dwg-ground{stroke:var(--ink-soft);stroke-width:1;stroke-dasharray:9 6;opacity:.65}
+.dwg-leader{stroke:var(--ink-soft);stroke-width:1;fill:none}
+.dwg-dot{fill:var(--signal)}
+.dwg-label{
+  font-family:var(--mono);font-size:12.5px;font-weight:500;
+  letter-spacing:.09em;text-transform:uppercase;fill:var(--ink);
+}
+.dwg-sub{
+  font-family:var(--mono);font-size:11px;
+  letter-spacing:.05em;fill:var(--ink-soft);text-transform:none;
+}
+.dwg-title{
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;
+  text-transform:uppercase;fill:var(--ink-soft);
+}
+.dwg-frame{fill:none;stroke:var(--rule);stroke-width:1}
+
+/* draw-in choreography */
+.dwg-body,.dwg-chassis{stroke-dasharray:3000;stroke-dashoffset:3000;animation:draw 1.5s cubic-bezier(.6,.02,.3,1) forwards}
+.dwg-chassis{animation-delay:.55s;animation-duration:1.1s}
+.anno{opacity:0;animation:fade .5s ease forwards}
+.anno-1{animation-delay:1.15s}
+.anno-2{animation-delay:1.32s}
+.anno-3{animation-delay:1.49s}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes fade{to{opacity:1}}
+
+.anno-list{
+  display:none;
+  border-top:1px solid var(--rule);
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;
+}
+.anno-list li{
+  list-style:none;padding:12px 16px;border-bottom:1px solid var(--rule);
+  display:flex;gap:12px;
+}
+.anno-list li:last-child{border-bottom:0}
+.anno-list b{color:var(--signal);font-weight:500;flex:0 0 auto}
+@media(max-width:700px){
+  .anno-text{display:none}
+  .anno-list{display:block}
+}
+
+/* ---------- sections ---------- */
+section{padding-top:clamp(56px,8vw,116px);padding-bottom:clamp(10px,1vw,18px)}
+.band{background:var(--paper-deep);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding-bottom:clamp(56px,8vw,116px);margin-top:clamp(56px,8vw,116px)}
+
+.stmt{font-family:var(--display);font-variation-settings:"wdth" 112;font-weight:700;
+  font-size:clamp(24px,3.4vw,42px);line-height:1.08;text-transform:uppercase;max-width:18ch;margin:0}
+.stmt span{color:var(--ink-soft)}
+
+/* matrix */
+.matrix{width:100%;border-collapse:collapse;margin-top:36px;font-family:var(--mono);font-size:12px}
+.matrix th,.matrix td{border-bottom:1px solid var(--rule);padding:15px 10px;text-align:center;vertical-align:middle}
+.matrix thead th{
+  font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);
+  font-size:10.5px;line-height:1.4;border-bottom:1px solid var(--ink);
+}
+.matrix tbody th{text-align:left;font-weight:500;letter-spacing:.06em;color:var(--ink);white-space:nowrap}
+.matrix .is-us th,.matrix .is-us td{background:color-mix(in srgb,var(--signal) 7%,transparent);border-bottom-color:var(--signal)}
+.matrix .is-us th{color:var(--signal)}
+.mark{font-size:15px;line-height:1}
+.mark.no{color:var(--ink-soft);opacity:.55}
+.matrix-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+
+/* function grid */
+.fns{display:grid;gap:1px;background:var(--rule);border:1px solid var(--rule);margin-top:40px}
+@media(min-width:760px){.fns{grid-template-columns:repeat(3,1fr)}}
+.fn{background:var(--paper);padding:clamp(22px,2.6vw,34px)}
+.fn svg{display:block;width:100%;height:auto;margin-bottom:22px}
+.fn .fig{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:12px}
+.fn h3{margin-bottom:10px}
+.fn p{font-size:16px;line-height:1.5;margin:0;color:var(--ink-soft)}
+.fig-line{fill:none;stroke:var(--ink);stroke-width:1.8}
+.fig-accent{fill:none;stroke:var(--signal);stroke-width:2.6;stroke-linecap:round}
+.fig-ghost{fill:none;stroke:var(--ink-soft);stroke-width:1.2;stroke-dasharray:5 5;opacity:.7}
+
+/* steps */
+.steps{margin-top:44px;border-top:1px solid var(--ink)}
+.step{
+  display:grid;grid-template-columns:auto 1fr;gap:18px;
+  padding:26px 0;border-bottom:1px solid var(--rule);align-items:start;
+}
+@media(min-width:820px){
+  .step{grid-template-columns:64px minmax(0,7.5rem) minmax(0,1fr);gap:clamp(20px,3vw,44px);align-items:baseline}
+}
+.step-n{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--signal);font-weight:500;padding-top:.35em}
+.step p{margin:8px 0 0;font-size:16.5px;color:var(--ink-soft);max-width:52ch}
+@media(min-width:820px){.step p{margin-top:0}}
+
+/* status list */
+.status{margin-top:40px;border-top:1px solid var(--ink);padding:0}
+.status li{
+  list-style:none;display:grid;grid-template-columns:1fr auto;gap:18px;align-items:baseline;
+  padding:18px 0;border-bottom:1px solid var(--rule);
+}
+.status .what{font-family:var(--display);font-variation-settings:"wdth" 108;font-weight:700;
+  text-transform:uppercase;font-size:clamp(14px,1.4vw,17px);letter-spacing:.02em}
+.status .tag{font-family:var(--mono);font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-soft);white-space:nowrap}
+.status .tag.live{color:var(--signal)}
+
+/* contact */
+.cta-row{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px;align-items:center}
+.btn{
+  display:inline-block;font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;
+  text-transform:uppercase;text-decoration:none;padding:15px 26px;border:1px solid var(--ink);
+  background:var(--ink);color:var(--paper);transition:background .18s,color .18s,border-color .18s;
+}
+.btn:hover,.btn:focus-visible{background:var(--signal);border-color:var(--signal)}
+.btn.ghost{background:transparent;color:var(--ink)}
+.btn.ghost:hover,.btn.ghost:focus-visible{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+
+/* ---------- footer ---------- */
+footer{border-top:1px solid var(--rule);margin-top:clamp(56px,8vw,110px)}
+.foot-logo-band{
+  padding:clamp(36px,5vw,64px) 0 clamp(28px,4vw,48px);
+  border-bottom:1px solid var(--rule);
+}
+.foot-logo{
+  display:block;
+  max-width:clamp(180px,22vw,280px);
+  opacity:.72;
+  mix-blend-mode:multiply;
+}
+.foot-in{
+  display:flex;flex-wrap:wrap;gap:18px;justify-content:space-between;
+  padding:24px 0 40px;
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--ink-soft)
+}
+.foot-in a{text-decoration:none}
+.foot-in a:hover{color:var(--ink)}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s cubic-bezier(.2,.7,.3,1)}
+.rv.in{opacity:1;transform:none}
+
+:focus-visible{outline:2px solid var(--signal);outline-offset:3px}
+
+@media(prefers-reduced-motion:reduce){
+  *{animation:none !important;transition:none !important}
+  .dwg-body,.dwg-chassis{stroke-dashoffset:0}
+  .anno{opacity:1}
+  .rv{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<header class="mast">
+  <div class="wrap mast-in">
+    <a class="logo" href="#top" aria-label="astrm — home">
+      <!-- inline logo mark: terracotta chevrons + wordmark -->
+      <svg width="120" height="30" viewBox="0 0 120 30" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <!-- arrow shaft -->
+        <line x1="2" y1="15" x2="118" y2="15" stroke="#15171A" stroke-width="1.1"/>
+        <!-- arrow tip -->
+        <path d="M112,11 L119,15 L112,19" fill="none" stroke="#15171A" stroke-width="1.1" stroke-linejoin="round"/>
+        <!-- 5 terracotta chevrons (stacked, left side) -->
+        <path d="M2,5 L11,9 L2,13"  fill="none" stroke="#C35038" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+        <path d="M2,9 L11,13 L2,17" fill="none" stroke="#C35038" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+        <path d="M2,13 L11,17 L2,21"fill="none" stroke="#C35038" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+        <path d="M2,17 L11,21 L2,25"fill="none" stroke="#C35038" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+        <!-- wordmark text (rendered via CSS font so it loads correctly) -->
+      </svg>
+      <span style="font-family:var(--display);font-variation-settings:'wdth' 125;font-weight:800;font-size:19px;letter-spacing:.02em;text-transform:lowercase;margin-left:-4px;line-height:1">astrm</span>
+    </a>
+    <nav>
+      <a href="#technology">Technology</a>
+      <a href="#partners">Partners</a>
+      <a href="#evidence">Evidence</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ============ HERO ============ -->
+  <div class="wrap hero">
+    <p class="eyebrow">Footwear component technology</p>
+    <h1>What's inside <em>the shoe</em></h1>
+
+    <div class="sheet">
+      <svg viewBox="0 0 900 340" role="img" aria-labelledby="dwgTitle dwgDesc">
+        <title id="dwgTitle">Section drawing of the astrm midsole chassis</title>
+        <desc id="dwgDesc">A side section of a midsole, with the astrm chassis marked through the arch and forefoot, annotated for toe splay, medial arch pronation and elastic recoil.</desc>
+
+        <defs>
+          <pattern id="hatch" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+            <g class="dwg-hatch"><line x1="0" y1="0" x2="0" y2="9"/></g>
+          </pattern>
+        </defs>
+
+        <!-- sheet frame + title block -->
+        <rect class="dwg-frame" x="14" y="14" width="872" height="312"/>
+        <text class="dwg-title" x="30" y="316">astrm chassis · section a–a · not to scale</text>
+        <text class="dwg-title" x="870" y="316" text-anchor="end">fig. 00</text>
+
+        <!-- ground line -->
+        <line class="dwg-ground" x1="40" y1="256" x2="860" y2="256"/>
+
+        <!-- midsole body -->
+        <path class="dwg-body"
+          d="M92,196 C142,152 252,154 332,166 C452,182 572,200 700,210 C762,215 802,220 824,226
+             C830,236 828,240 824,244
+             C800,250 760,252 700,253 C500,257 300,258 132,258
+             C104,257 86,232 92,196 Z"/>
+
+        <!-- the chassis -->
+        <path class="dwg-chassis"
+          d="M134,212 C204,186 266,182 336,190 C456,206 576,220 694,228 C744,232 784,236 812,240"/>
+
+        <!-- annotation 1 : medial arch -->
+        <g class="anno anno-1">
+          <path class="dwg-leader" d="M336,190 L336,118 L216,118"/>
+          <circle class="dwg-dot" cx="336" cy="190" r="3.4"/>
+          <g class="anno-text">
+            <text class="dwg-label" x="208" y="112" text-anchor="end">Medial arch</text>
+            <text class="dwg-sub" x="208" y="130" text-anchor="end">controlled pronation</text>
+          </g>
+        </g>
+
+        <!-- annotation 2 : recoil -->
+        <g class="anno anno-2">
+          <path class="dwg-leader" d="M540,216 L540,290"/>
+          <circle class="dwg-dot" cx="540" cy="216" r="3.4"/>
+          <g class="anno-text">
+            <text class="dwg-label" x="552" y="286">Chassis</text>
+            <text class="dwg-sub" x="552" y="303">elastic recoil</text>
+          </g>
+        </g>
+
+        <!-- annotation 3 : forefoot splay -->
+        <g class="anno anno-3">
+          <path class="dwg-leader" d="M778,236 L818,150 L862,150"/>
+          <circle class="dwg-dot" cx="778" cy="236" r="3.4"/>
+          <g class="anno-text">
+            <text class="dwg-label" x="700" y="88">Forefoot</text>
+            <text class="dwg-sub" x="700" y="106">toe splay</text>
+            <path class="dwg-leader" d="M818,150 L818,110 L790,110"/>
+          </g>
+        </g>
+      </svg>
+
+      <ul class="anno-list">
+        <li><b>01</b> Medial arch — controlled pronation</li>
+        <li><b>02</b> Chassis — elastic recoil</li>
+        <li><b>03</b> Forefoot — toe splay</li>
+      </ul>
+    </div>
+
+    <div class="hero-foot">
+      <p class="lede">astrm licenses patented midsole geometry into the shoes brands already make.</p>
+      <p class="muted">The brand keeps its name, its silhouette and its customer. We change what's inside the shoe — a structural chassis that lets the foot splay, flex and spring back, inside a conventional sole unit.</p>
+    </div>
+  </div>
+
+  <!-- ============ THESIS ============ -->
+  <section class="wrap" id="technology">
+    <p class="eyebrow">The premise</p>
+    <p class="stmt">Your foot was built to splay, flex and spring back. <span>Shoes stopped it.</span></p>
+    <div class="hero-foot" style="border-top:0;margin-top:34px;padding-top:0">
+      <p class="muted">Barefoot shoes give the foot its motion back, but only by dictating the shape of the shoe. Conventional midsoles keep the silhouette and flatten the motion. Custom orthotics sit on top of the problem, one prescription at a time.</p>
+      <p class="muted">astrm is a third option: the motion, engineered into the sole unit itself, invisible in a mirror and legible on a pressure map.</p>
+    </div>
+  </section>
+
+  <!-- ============ MATRIX ============ -->
+  <section class="band">
+    <div class="wrap">
+      <p class="eyebrow">Where it sits</p>
+      <h2>A category of one</h2>
+      <div class="matrix-scroll">
+        <table class="matrix">
+          <thead>
+            <tr>
+              <th scope="col"></th>
+              <th scope="col">Designed for<br>natural foot motion</th>
+              <th scope="col">Works in any<br>silhouette</th>
+              <th scope="col">No prescription<br>required</th>
+              <th scope="col">Invisible to<br>the wearer</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Barefoot footwear</th>
+              <td><span class="mark">●</span></td>
+              <td><span class="mark no">○</span></td>
+              <td><span class="mark">●</span></td>
+              <td><span class="mark no">○</span></td>
+            </tr>
+            <tr>
+              <th scope="row">Conventional midsoles</th>
+              <td><span class="mark no">○</span></td>
+              <td><span class="mark">●</span></td>
+              <td><span class="mark">●</span></td>
+              <td><span class="mark">●</span></td>
+            </tr>
+            <tr>
+              <th scope="row">Custom orthotics</th>
+              <td><span class="mark">●</span></td>
+              <td><span class="mark no">○</span></td>
+              <td><span class="mark no">○</span></td>
+              <td><span class="mark no">○</span></td>
+            </tr>
+            <tr class="is-us">
+              <th scope="row">astrm chassis</th>
+              <td><span class="mark">●</span></td>
+              <td><span class="mark">●</span></td>
+              <td><span class="mark">●</span></td>
+              <td><span class="mark">●</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FUNCTIONS ============ -->
+  <section class="wrap">
+    <p class="eyebrow">What the chassis does</p>
+    <h2>Three movements</h2>
+
+    <div class="fns">
+      <div class="fn rv">
+        <p class="fig">Fig. 01 — plan</p>
+        <svg viewBox="0 0 300 140" role="img" aria-label="Plan view of a forefoot, showing the toe box widening to allow splay">
+          <path class="fig-ghost" d="M40,44 C96,30 150,34 196,46 C224,53 236,62 236,70 C236,78 224,87 196,94 C150,106 96,110 40,96 Z"/>
+          <path class="fig-line" d="M40,40 C96,22 154,26 204,40 C238,50 252,60 252,70 C252,80 238,90 204,100 C154,114 96,118 40,100 Z"/>
+          <path class="fig-accent" d="M212,44 L242,32"/>
+          <path class="fig-accent" d="M212,96 L242,108"/>
+        </svg>
+        <h3>Toe splay</h3>
+        <p>The forefoot spreads under load. The chassis gives it room to, rather than holding it in a taper.</p>
+      </div>
+
+      <div class="fn rv">
+        <p class="fig">Fig. 02 — section</p>
+        <svg viewBox="0 0 300 140" role="img" aria-label="Section through the arch, showing the medial arch guided through pronation">
+          <path class="fig-line" d="M30,96 C70,60 120,52 170,60 C220,68 258,80 274,88"/>
+          <path class="fig-ghost" d="M30,110 C90,108 200,108 274,104"/>
+          <path class="fig-accent" d="M96,66 C122,58 152,58 176,64"/>
+        </svg>
+        <h3>Controlled pronation</h3>
+        <p>The medial arch is guided through its natural roll during propulsion — not blocked, not left unsupported.</p>
+      </div>
+
+      <div class="fn rv">
+        <p class="fig">Fig. 03 — section</p>
+        <svg viewBox="0 0 300 140" role="img" aria-label="Section showing the arch compressing and returning energy">
+          <path class="fig-ghost" d="M34,92 C82,64 138,58 190,66 C232,72 262,82 274,88"/>
+          <path class="fig-line" d="M34,100 C82,84 138,80 190,84 C232,88 262,92 274,96"/>
+          <path class="fig-accent" d="M150,50 L150,26"/>
+          <path class="fig-accent" d="M142,34 L150,24 L158,34"/>
+        </svg>
+        <h3>Elastic recoil</h3>
+        <p>The arch stores load and returns it. The chassis is tuned to spring rather than to absorb and stay flat.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PARTNERS ============ -->
+  <section class="band" id="partners">
+    <div class="wrap">
+      <p class="eyebrow">For brands</p>
+      <h2>Designed in,<br>not bolted on</h2>
+      <p class="muted" style="margin-top:26px">astrm is specified like any other sole component and manufactured through an established component partner. You are not betting your calendar on a new factory.</p>
+
+      <div class="steps">
+        <div class="step rv">
+          <div class="step-n">01</div>
+          <h3>Capsule</h3>
+          <p>One silhouette, one season, limited run. A reversible experiment with a co-branded mark and launch story attached.</p>
+        </div>
+        <div class="step rv">
+          <div class="step-n">02</div>
+          <h3>Programme</h3>
+          <p>Multi-season supply across a model family, on licence or supply-plus-royalty terms. Tooling amortises; the component stays specified.</p>
+        </div>
+        <div class="step rv">
+          <div class="step-n">03</div>
+          <h3>Exclusivity</h3>
+          <p>First adopters can hold a category window. Priced dearly, expired firmly.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ EVIDENCE ============ -->
+  <section class="wrap" id="evidence">
+    <p class="eyebrow">Evidence</p>
+    <h2>What we can<br>show you today</h2>
+    <p class="muted" style="margin-top:26px">Component decisions get made on evidence, not enthusiasm. This is an honest status board, updated as work completes.</p>
+
+    <!-- TODO: replace tags below as milestones land. Do not add a metric here without a study behind it. -->
+    <ul class="status">
+      <li><span class="what">Patented geometry</span><span class="tag live">Granted</span></li>
+      <!-- TODO: add patent numbers + jurisdictions once cleared for publication -->
+      <li><span class="what">In-shoe pressure mapping</span><span class="tag">Available under NDA</span></li>
+      <li><span class="what">Gait-lab study</span><span class="tag">In progress</span></li>
+      <li><span class="what">Manufacturing partner</span><span class="tag">Contracted</span></li>
+      <!-- TODO: decide whether to name the manufacturing partner publicly -->
+      <li><span class="what">Claims review</span><span class="tag">In progress</span></li>
+    </ul>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section class="wrap" id="contact">
+    <p class="eyebrow">Contact</p>
+    <p class="stmt">Bring us the silhouette. <span>We'll bring the chassis.</span></p>
+    <div class="cta-row">
+      <!-- TODO: swap for the real address, or wire to a Formspree endpoint -->
+      <a class="btn" href="mailto:hello@astrm.co.uk?subject=Partnership%20enquiry">Partnership enquiry</a>
+      <a class="btn ghost" href="mailto:hello@astrm.co.uk?subject=Technical%20pack">Request the technical pack</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-logo-band">
+      <img class="foot-logo" src="/assets/astrm-logo.png" alt="astrm" width="280" height="auto">
+    </div>
+    <div class="foot-in">
+      <span>astrm · midsole chassis</span>
+      <span>© <span id="yr">2026</span> astrm</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.getElementById('yr').textContent = new Date().getFullYear();
+
+var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+var items = document.querySelectorAll('.rv');
+if (reduce || !('IntersectionObserver' in window)) {
+  items.forEach(function(el){ el.classList.add('in'); });
+} else {
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { rootMargin: '0px 0px -12% 0px', threshold: 0.1 });
+  items.forEach(function(el, i){ el.style.transitionDelay = (i % 3) * 90 + 'ms'; io.observe(el); });
+}
+</script>
+</body>
+</html>
