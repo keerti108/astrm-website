@@ -88,9 +88,9 @@ a{color:inherit}
 
 /* ---------- masthead ---------- */
 .mast{
-  border-bottom:1px solid var(--rule);
+  border-bottom:none;
   position:sticky;top:0;z-index:20;
-  background:color-mix(in srgb,var(--paper) 88%,transparent);
+  background:color-mix(in srgb,var(--ink) 94%,transparent);
   backdrop-filter:blur(8px);
 }
 .mast-in{
@@ -98,22 +98,21 @@ a{color:inherit}
   gap:24px;padding-top:14px;padding-bottom:14px;
 }
 
-/* logo mark — arrow chevrons + wordmark */
 .logo{
-  display:flex;
-  align-items:center;
-  gap:0;
+  display:block;
   text-decoration:none;
   line-height:1;
-}
-.logo svg{
-  display:block;
   flex-shrink:0;
+}
+.logo img{
+  display:block;
+  height:28px;
+  width:auto;
 }
 
 .mast nav{display:flex;gap:clamp(14px,2.4vw,32px);font-family:var(--mono);font-size:11px;letter-spacing:.13em;text-transform:uppercase}
-.mast nav a{text-decoration:none;color:var(--ink-soft);padding-bottom:2px;border-bottom:1px solid transparent}
-.mast nav a:hover,.mast nav a:focus-visible{color:var(--ink);border-bottom-color:var(--signal)}
+.mast nav a{text-decoration:none;color:color-mix(in srgb,var(--paper) 55%,transparent);padding-bottom:2px;border-bottom:1px solid transparent}
+.mast nav a:hover,.mast nav a:focus-visible{color:var(--paper);border-bottom-color:var(--signal)}
 
 /* ---------- hero ---------- */
 .hero{padding-top:clamp(44px,6vw,84px);padding-bottom:clamp(30px,4vw,54px)}
@@ -299,20 +298,7 @@ footer{border-top:1px solid var(--rule);margin-top:clamp(56px,8vw,110px)}
 <header class="mast">
   <div class="wrap mast-in">
     <a class="logo" href="#top" aria-label="astrm — home">
-      <!-- inline logo mark: terracotta chevrons + wordmark -->
-      <svg width="120" height="30" viewBox="0 0 120 30" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <!-- arrow shaft -->
-        <line x1="2" y1="15" x2="118" y2="15" stroke="#15171A" stroke-width="1.1"/>
-        <!-- arrow tip -->
-        <path d="M112,11 L119,15 L112,19" fill="none" stroke="#15171A" stroke-width="1.1" stroke-linejoin="round"/>
-        <!-- 5 terracotta chevrons (stacked, left side) -->
-        <path d="M2,5 L11,9 L2,13"  fill="none" stroke="#C35038" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
-        <path d="M2,9 L11,13 L2,17" fill="none" stroke="#C35038" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
-        <path d="M2,13 L11,17 L2,21"fill="none" stroke="#C35038" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
-        <path d="M2,17 L11,21 L2,25"fill="none" stroke="#C35038" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
-        <!-- wordmark text (rendered via CSS font so it loads correctly) -->
-      </svg>
-      <span style="font-family:var(--display);font-variation-settings:'wdth' 125;font-weight:800;font-size:19px;letter-spacing:.02em;text-transform:lowercase;margin-left:-4px;line-height:1">astrm</span>
+      <img src="assets/astrm-logo.png" alt="astrm" height="28">
     </a>
     <nav>
       <a href="#technology">Technology</a>
@@ -570,7 +556,7 @@ footer{border-top:1px solid var(--rule);margin-top:clamp(56px,8vw,110px)}
 <footer>
   <div class="wrap">
     <div class="foot-logo-band">
-      <img class="foot-logo" src="/assets/astrm-logo.png" alt="astrm" width="280" height="auto">
+      <img class="foot-logo" src="assets/astrm-logo.png" alt="astrm" width="280">
     </div>
     <div class="foot-in">
       <span>astrm · midsole chassis</span>
