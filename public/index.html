@@ -54,26 +54,24 @@ p { margin: 0; }
 .nav {
   padding: 22px 0;
   border-bottom: 1px solid var(--rule);
+  background: var(--ink);
 }
 .nav-in {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-.wordmark {
-  font-family: var(--serif);
-  font-style: italic;
-  font-weight: 400;
-  font-size: 21px;
-  letter-spacing: 0.04em;
-  color: var(--ink);
+.nav-logo {
+  display: block;
+  height: 26px;
+  width: auto;
 }
 .nav-tag {
   font-family: var(--mono);
   font-size: 10px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--ink-soft);
+  color: #6B6460;
 }
 
 /* ─── HERO ─────────────────────────────────────── */
@@ -83,10 +81,10 @@ p { margin: 0; }
 }
 .hero-logo {
   display: block;
-  width: clamp(140px, 18vw, 220px);
+  width: clamp(160px, 22vw, 260px);
   height: auto;
   margin: 0 auto clamp(44px, 6vw, 72px);
-  filter: contrast(1.1) brightness(0.97);
+  filter: drop-shadow(0 0 0.5px rgba(28,25,22,0.25));
 }
 .hero-tagline {
   font-family: var(--serif);
@@ -259,8 +257,8 @@ footer {
   display: block;
   height: 30px;
   width: auto;
-  opacity: 0.5;
-  filter: contrast(1.1);
+  filter: drop-shadow(0 0 0.5px rgba(28,25,22,0.2));
+  opacity: 0.7;
 }
 .foot-right {
   text-align: right;
@@ -289,7 +287,7 @@ footer {
 <!-- NAV -->
 <nav class="nav">
   <div class="wrap nav-in">
-    <a class="wordmark" href="/">astrm</a>
+    <a href="/"><img class="nav-logo" src="assets/astrm-logo.png" alt="astrm"></a>
     <span class="nav-tag">Orthotics Expert</span>
   </div>
 </nav>
