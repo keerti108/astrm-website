@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>astrm — Wellbeing. Longevity. Performance.</title>
-<meta name="description" content="astrm. Experts in orthotics, luxury and performance. Coming soon.">
+<meta name="description" content="astrm. Biomechanical technologies designed with compassion, guided by science. Coming soon.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,11 +12,11 @@
 
 <style>
 :root {
-  --bg:       #F8F5F1;
-  --bg-alt:   #F0EBE3;
-  --ink:      #1C1916;
-  --ink-soft: #8C877F;
-  --rule:     #DDD7CE;
+  --bg:       #0C1A27;
+  --bg-alt:   #112032;
+  --ink:      #EDE8DC;
+  --ink-soft: #8E9BA8;
+  --rule:     #1C3347;
   --signal:   #C35038;
 
   --serif: "Cormorant Garamond", Georgia, serif;
@@ -52,9 +52,8 @@ p { margin: 0; }
 
 /* ─── NAV ──────────────────────────────────────── */
 .nav {
-  padding: 22px 0;
+  padding: 24px 0;
   border-bottom: 1px solid var(--rule);
-  background: var(--ink);
 }
 .nav-in {
   display: flex;
@@ -71,13 +70,12 @@ p { margin: 0; }
   font-size: 17px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #9A948E;
+  color: var(--ink-soft);
 }
 
 /* ─── HERO ─────────────────────────────────────── */
 .hero {
-  padding: clamp(80px, 13vw, 180px) 0 clamp(64px, 9vw, 120px);
-  text-align: center;
+  padding: clamp(80px, 13vw, 180px) 0 clamp(72px, 10vw, 140px);
 }
 .hero-eyebrow {
   font-family: var(--serif);
@@ -85,162 +83,156 @@ p { margin: 0; }
   font-weight: 400;
   font-size: clamp(36px, 4vw, 54px);
   letter-spacing: 0.06em;
-  color: var(--ink);
-  margin: 0 0 clamp(32px, 4vw, 56px);
+  color: var(--ink-soft);
+  margin: 0 0 clamp(32px, 4vw, 52px);
 }
 .hero-tagline {
   font-family: var(--serif);
   font-weight: 300;
-  font-size: clamp(48px, 8vw, 110px);
-  line-height: 1.04;
-  letter-spacing: -0.015em;
+  font-size: clamp(52px, 8vw, 112px);
+  line-height: 1.02;
+  letter-spacing: -0.01em;
   color: var(--ink);
-  margin: 0 0 clamp(28px, 3vw, 44px);
+  margin: 0 0 clamp(40px, 5vw, 72px);
 }
 .hero-tagline em {
   font-style: italic;
   color: var(--signal);
 }
-.hero-label {
-  font-family: var(--mono);
-  font-size: 20px;
-  letter-spacing: 0.13em;
-  text-transform: uppercase;
-  color: var(--ink-soft);
+.hero-medicine {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(28px, 3.5vw, 48px);
+  color: var(--ink);
+  line-height: 1.2;
 }
 
-/* ─── WHO WE ARE ────────────────────────────────── */
+/* ─── ABOUT ─────────────────────────────────────── */
 .about {
   padding: clamp(72px, 10vw, 140px) 0;
   border-top: 1px solid var(--rule);
 }
-.about-inner {
-  max-width: 680px;
-}
 .section-label {
   font-family: var(--mono);
-  font-size: 18px;
-  letter-spacing: 0.1em;
+  font-size: 17px;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--signal);
   margin-bottom: 36px;
 }
-.about-statement {
+.about-heading {
   font-family: var(--serif);
-  font-weight: 400;
-  font-size: clamp(26px, 3.2vw, 42px);
-  line-height: 1.35;
+  font-weight: 300;
+  font-size: clamp(34px, 4.5vw, 60px);
+  line-height: 1.12;
   color: var(--ink);
-  margin-bottom: 28px;
-}
-.about-statement em {
-  font-style: italic;
-  color: var(--signal);
+  margin: 0 0 clamp(40px, 5vw, 64px);
+  max-width: 22ch;
 }
 .about-body {
   font-size: clamp(20px, 1.8vw + 15px, 26px);
   color: var(--ink-soft);
-  max-width: 52ch;
-  line-height: 1.7;
+  max-width: 54ch;
+  line-height: 1.75;
+}
+.about-body p + p {
+  margin-top: 1.4em;
 }
 
-/* ─── PRODUCTS ──────────────────────────────────── */
-.products {
+/* ─── COMING SOON ──────────────────────────────── */
+.launch {
   background: var(--bg-alt);
   border-top: 1px solid var(--rule);
   border-bottom: 1px solid var(--rule);
   padding: clamp(72px, 10vw, 140px) 0;
+  text-align: center;
 }
-.products-header {
-  margin-bottom: clamp(48px, 6vw, 80px);
-}
-.products-heading {
-  font-family: var(--serif);
-  font-weight: 300;
-  font-size: clamp(32px, 4.5vw, 60px);
-  line-height: 1.1;
-  letter-spacing: -0.01em;
-  margin: 0;
-  color: var(--ink);
-}
-.products-heading em {
-  font-style: italic;
-  color: var(--signal);
-}
-
-.product-grid {
-  display: grid;
-  gap: 1px;
-  background: var(--rule);
-  border: 1px solid var(--rule);
-}
-@media (min-width: 720px) {
-  .product-grid { grid-template-columns: 1fr 1fr; }
-}
-
-.product-card {
-  background: var(--bg-alt);
-  padding: clamp(36px, 4vw, 56px);
-  display: flex;
-  flex-direction: column;
-}
-.product-num {
-  font-family: var(--mono);
-  font-size: 18px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+.launch-text {
+  font-size: clamp(20px, 2vw + 14px, 26px);
   color: var(--ink-soft);
-  margin-bottom: clamp(32px, 4vw, 48px);
+  margin-bottom: 28px;
 }
-.product-title {
-  font-family: var(--serif);
-  font-weight: 600;
-  font-size: clamp(28px, 3vw, 42px);
-  line-height: 1.15;
-  color: var(--ink);
-  margin: 0 0 24px;
-}
-.product-body {
-  font-size: clamp(19px, 1.6vw + 14px, 24px);
-  color: var(--ink-soft);
-  line-height: 1.7;
-  flex: 1;
-  margin-bottom: 40px;
-  max-width: 42ch;
-}
-.badge {
+.launch-badge {
   display: inline-block;
   font-family: var(--mono);
   font-size: 16px;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--signal);
   border: 1px solid var(--signal);
-  padding: 12px 24px;
-  align-self: flex-start;
+  padding: 14px 36px;
 }
 
-/* ─── CLOSING ───────────────────────────────────── */
-.closing {
+/* ─── FOUNDER ──────────────────────────────────── */
+.founder {
   padding: clamp(72px, 10vw, 140px) 0;
-  text-align: center;
+  border-top: 1px solid var(--rule);
 }
-.closing-statement {
-  font-family: var(--serif);
-  font-style: italic;
-  font-weight: 300;
-  font-size: clamp(28px, 4vw, 54px);
-  line-height: 1.2;
-  color: var(--ink);
-  max-width: 18ch;
-  margin: 0 auto 28px;
+.founder-grid {
+  display: grid;
+  gap: clamp(48px, 6vw, 80px);
+  align-items: start;
 }
-.closing-sub {
+@media (min-width: 720px) {
+  .founder-grid { grid-template-columns: 1fr 1fr; }
+}
+.founder-photo {
+  background: var(--bg-alt);
+  border: 1px solid var(--rule);
+  aspect-ratio: 3/4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.founder-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.founder-photo-placeholder {
   font-family: var(--mono);
-  font-size: 18px;
+  font-size: 14px;
+  letter-spacing: 0.1em;
+  color: var(--rule);
+  text-transform: uppercase;
+  text-align: center;
+  padding: 24px;
+}
+.founder-name {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(30px, 3.5vw, 48px);
+  color: var(--ink);
+  margin: 0 0 10px;
+}
+.founder-title {
+  font-family: var(--mono);
+  font-size: 17px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
+  color: var(--signal);
+  margin-bottom: 40px;
+}
+.founder-bio {
+  font-size: clamp(19px, 1.6vw + 14px, 24px);
   color: var(--ink-soft);
+  line-height: 1.75;
+}
+.founder-bio p + p {
+  margin-top: 1.4em;
+}
+.founder-philosophy {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(24px, 2.5vw, 36px);
+  color: var(--ink);
+  margin: 40px 0 0;
+  padding-top: 40px;
+  border-top: 1px solid var(--rule);
+  line-height: 1.3;
 }
 
 /* ─── FOOTER ────────────────────────────────────── */
@@ -263,9 +255,7 @@ footer {
   color: var(--ink);
   margin: 0;
 }
-.foot-right {
-  text-align: right;
-}
+.foot-right { text-align: right; }
 .foot-tagline {
   font-family: var(--serif);
   font-style: italic;
@@ -304,52 +294,49 @@ footer {
       <em>Longevity.</em><br>
       Performance.
     </h1>
-    <p class="hero-label">The orthotics expert</p>
+    <p class="hero-medicine">Movement is medicine.</p>
   </div>
 </section>
 
-<!-- WHO WE ARE -->
+<!-- ABOUT -->
 <section class="about">
   <div class="wrap">
-    <div class="about-inner">
-      <p class="section-label">Who we are</p>
-      <p class="about-statement">Where <em>medical precision</em> meets luxury craftsmanship and elite performance.</p>
-      <p class="about-body">We are orthotics experts. We believe that exceptional support — the kind that improves how you feel, move and live — should not be reserved for athletes or patients. It should be available to everyone, built to the highest possible standard.</p>
+    <p class="section-label">Our approach</p>
+    <h2 class="about-heading">Human movement, thoughtfully redesigned.</h2>
+    <div class="about-body">
+      <p>The human body is an extraordinary system of movement, yet the products we use every day rarely understand it.</p>
+      <p>At astrm, we're developing biomechanical technologies inspired by the intelligence of the body itself — designed with compassion, guided by science and shaped through thoughtful engineering.</p>
     </div>
   </div>
 </section>
 
-<!-- PRODUCTS -->
-<section class="products">
+<!-- COMING SOON -->
+<section class="launch">
   <div class="wrap">
-    <div class="products-header">
-      <p class="section-label">What we are building</p>
-      <h2 class="products-heading">Products that will<br><em>change how you feel.</em></h2>
-    </div>
-
-    <div class="product-grid">
-      <div class="product-card">
-        <p class="product-num">01 — First product</p>
-        <h3 class="product-title">An insole that will blow your mind.</h3>
-        <p class="product-body">Our first orthotics insole is engineered for everyone — from everyday life to extraordinary performance. One for everyone. The details will speak for themselves.</p>
-        <span class="badge">Coming soon</span>
-      </div>
-
-      <div class="product-card">
-        <p class="product-num">02 — What's next</p>
-        <h3 class="product-title">Incredible products. In development.</h3>
-        <p class="product-body">This is only the beginning. More advanced, unexpected products are on their way — each one designed around the same belief that the right foundation changes everything.</p>
-        <span class="badge">Stay tuned</span>
-      </div>
-    </div>
+    <p class="launch-text">We're currently preparing for launch.</p>
+    <span class="launch-badge">Coming Soon</span>
   </div>
 </section>
 
-<!-- CLOSING -->
-<section class="closing">
+<!-- FOUNDER -->
+<section class="founder">
   <div class="wrap">
-    <p class="closing-statement">The best is yet to come.</p>
-    <p class="closing-sub">astrm &nbsp;·&nbsp; Launching soon</p>
+    <p class="section-label">Founded by</p>
+    <div class="founder-grid">
+      <div class="founder-photo">
+        <!-- Send photo to add: replace the span below with <img src="assets/keerti.jpg" alt="Keerti Mathur"> -->
+        <span class="founder-photo-placeholder">Photo of Keerti Mathur</span>
+      </div>
+      <div class="founder-content">
+        <h2 class="founder-name">Keerti Mathur</h2>
+        <p class="founder-title">Osteopath &amp; Founder</p>
+        <div class="founder-bio">
+          <p>astrm was founded by Keerti Mathur, an Osteopath with over twenty years of boutique clinical experience. His work has focused on the treatment of complex musculoskeletal conditions, product development and medico-legal consulting.</p>
+          <p>These experiences have shaped his belief that movement is medicine — a philosophy that sits at the heart of both his clinical practice and the technologies being developed at astrm.</p>
+        </div>
+        <p class="founder-philosophy">"Movement is medicine."</p>
+      </div>
+    </div>
   </div>
 </section>
 
