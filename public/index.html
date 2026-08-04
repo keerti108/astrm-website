@@ -82,10 +82,10 @@ p { margin: 0; }
 .hero-eyebrow {
   font-family: var(--serif);
   font-style: italic;
-  font-weight: 300;
-  font-size: clamp(22px, 2.5vw, 32px);
-  letter-spacing: 0.08em;
-  color: var(--ink-soft);
+  font-weight: 400;
+  font-size: clamp(36px, 4vw, 54px);
+  letter-spacing: 0.06em;
+  color: var(--ink);
   margin: 0 0 clamp(32px, 4vw, 56px);
 }
 .hero-tagline {
@@ -255,12 +255,13 @@ footer {
   align-items: center;
   justify-content: space-between;
 }
-.foot-logo {
-  display: block;
-  height: 30px;
-  width: auto;
-  filter: drop-shadow(0 0 0.5px rgba(28,25,22,0.2));
-  opacity: 0.7;
+.foot-wordmark {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 28px;
+  color: var(--ink);
+  margin: 0;
 }
 .foot-right {
   text-align: right;
@@ -356,7 +357,7 @@ footer {
 <footer>
   <div class="wrap">
     <div class="foot-in">
-      <img class="foot-logo" src="assets/astrm-logo.png" alt="astrm">
+      <p class="foot-wordmark">astrm</p>
       <div class="foot-right">
         <p class="foot-tagline">Wellbeing. Longevity. Performance.</p>
         <p class="foot-copy">© <span id="yr"></span> astrm</p>
