@@ -65,6 +65,20 @@ p { margin: 0; }
   height: 32px;
   width: auto;
 }
+.nav-contact {
+  font-family: var(--mono);
+  font-size: 14px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink);
+  border: 1px solid var(--rule);
+  padding: 10px 22px;
+  transition: border-color 0.2s, color 0.2s;
+}
+.nav-contact:hover {
+  border-color: var(--signal);
+  color: var(--signal);
+}
 
 /* ─── HERO ─────────────────────────────────────── */
 .hero {
@@ -164,7 +178,7 @@ p { margin: 0; }
 .founder-grid {
   display: grid;
   gap: clamp(48px, 6vw, 80px);
-  align-items: start;
+  align-items: stretch;
 }
 @media (min-width: 720px) {
   .founder-grid { grid-template-columns: 1fr 1fr; }
@@ -200,31 +214,47 @@ p { margin: 0; }
   color: var(--ink);
   margin: 0 0 10px;
 }
+.founder-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 .founder-title {
   font-family: var(--mono);
   font-size: 17px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--signal);
-  margin-bottom: 40px;
+  margin-bottom: 24px;
 }
 .founder-bio {
-  font-size: clamp(19px, 1.6vw + 14px, 24px);
+  font-size: clamp(16px, 1.3vw + 12px, 19px);
   color: var(--ink-soft);
-  line-height: 1.75;
+  line-height: 1.7;
 }
 .founder-bio p + p {
-  margin-top: 1.4em;
+  margin-top: 1em;
 }
 .founder-philosophy {
   font-family: var(--serif);
   font-style: italic;
-  font-size: clamp(24px, 2.5vw, 36px);
+  font-size: clamp(20px, 2vw, 28px);
   color: var(--ink);
-  margin: 40px 0 0;
-  padding-top: 40px;
+  margin: 24px 0 0;
+  padding-top: 24px;
   border-top: 1px solid var(--rule);
   line-height: 1.3;
+}
+.founder-email {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 15px;
+  letter-spacing: 0.06em;
+  color: var(--signal);
+  margin-top: 20px;
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 2px;
 }
 
 /* ─── FOOTER ────────────────────────────────────── */
@@ -270,6 +300,7 @@ footer {
 <nav class="nav">
   <div class="wrap nav-in">
     <a href="/"><img class="nav-logo" src="assets/astrm-logo.png" alt="astrm"></a>
+    <a href="#contact" class="nav-contact">Contact</a>
   </div>
 </nav>
 
@@ -306,10 +337,9 @@ footer {
   </div>
 </section>
 
-<!-- FOUNDER -->
-<section class="founder">
+<!-- FOUNDER / CONTACT -->
+<section class="founder" id="contact">
   <div class="wrap">
-    <p class="section-label">Founded by</p>
     <div class="founder-grid">
       <div class="founder-photo">
         <img src="assets/keerti-image.png" alt="Keerti Mathur">
@@ -322,6 +352,7 @@ footer {
           <p>These experiences have shaped his belief that movement is medicine — a philosophy that sits at the heart of both his clinical practice and the technologies being developed at astrm.</p>
         </div>
         <p class="founder-philosophy">"Movement is medicine."</p>
+        <a href="mailto:keerti@astrm.co.uk" class="founder-email">keerti@astrm.co.uk</a>
       </div>
     </div>
   </div>
