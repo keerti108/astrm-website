@@ -79,12 +79,14 @@ p { margin: 0; }
   padding: clamp(80px, 13vw, 180px) 0 clamp(64px, 9vw, 120px);
   text-align: center;
 }
-.hero-logo {
-  display: block;
-  width: clamp(200px, 28vw, 340px);
-  height: auto;
-  margin: 0 auto clamp(48px, 6vw, 80px);
-  filter: drop-shadow(0 0 0.5px rgba(28,25,22,0.25));
+.hero-eyebrow {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(22px, 2.5vw, 32px);
+  letter-spacing: 0.08em;
+  color: var(--ink-soft);
+  margin: 0 0 clamp(32px, 4vw, 56px);
 }
 .hero-tagline {
   font-family: var(--serif);
@@ -295,7 +297,7 @@ footer {
 <!-- HERO -->
 <section class="hero">
   <div class="wrap">
-    <img class="hero-logo" src="assets/astrm-logo.png" alt="astrm">
+    <p class="hero-eyebrow">astrm</p>
     <h1 class="hero-tagline">
       Wellbeing.<br>
       <em>Longevity.</em><br>
