@@ -65,25 +65,15 @@ p { margin: 0; }
   height: 32px;
   width: auto;
 }
-.nav-tag {
-  font-family: var(--mono);
-  font-size: 17px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--ink-soft);
-}
 
 /* ─── HERO ─────────────────────────────────────── */
 .hero {
   padding: clamp(80px, 13vw, 180px) 0 clamp(72px, 10vw, 140px);
 }
-.hero-eyebrow {
-  font-family: var(--serif);
-  font-style: italic;
-  font-weight: 400;
-  font-size: clamp(36px, 4vw, 54px);
-  letter-spacing: 0.06em;
-  color: var(--ink-soft);
+.hero-logo {
+  display: block;
+  width: clamp(180px, 22vw, 300px);
+  height: auto;
   margin: 0 0 clamp(32px, 4vw, 52px);
 }
 .hero-tagline {
@@ -247,13 +237,10 @@ footer {
   align-items: center;
   justify-content: space-between;
 }
-.foot-wordmark {
-  font-family: var(--serif);
-  font-style: italic;
-  font-weight: 400;
-  font-size: 28px;
-  color: var(--ink);
-  margin: 0;
+.foot-logo {
+  display: block;
+  height: 28px;
+  width: auto;
 }
 .foot-right { text-align: right; }
 .foot-tagline {
@@ -281,14 +268,13 @@ footer {
 <nav class="nav">
   <div class="wrap nav-in">
     <a href="/"><img class="nav-logo" src="assets/astrm-logo.png" alt="astrm"></a>
-    <span class="nav-tag">Orthotics Expert</span>
   </div>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
   <div class="wrap">
-    <p class="hero-eyebrow">astrm</p>
+    <img class="hero-logo" src="assets/astrm-logo.png" alt="astrm">
     <h1 class="hero-tagline">
       Wellbeing.<br>
       <em>Longevity.</em><br>
@@ -344,7 +330,7 @@ footer {
 <footer>
   <div class="wrap">
     <div class="foot-in">
-      <p class="foot-wordmark">astrm</p>
+      <img class="foot-logo" src="assets/astrm-logo.png" alt="astrm">
       <div class="foot-right">
         <p class="foot-tagline">Wellbeing. Longevity. Performance.</p>
         <p class="foot-copy">© <span id="yr"></span> astrm</p>
